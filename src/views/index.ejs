@@ -1,4 +1,21 @@
-<main>
-    <h2>Welcome to TicketShare</h2>
-    <p>A system designed to ease the trouble of getting details for your next trip/booking to everyone in your group</p>
-</main>
+<h2>Welcome to TicketShare</h2>
+<p>A system designed to ease the trouble of getting details for your next trip/booking to everyone in your group</p>
+
+<h3>Add a new booking here</h3>
+<div id = "form">
+    <form  action="/booking/post" method="post">
+        <label for="event">Event:</label>
+        <input type="text" id="event" name="event" required />
+
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date" required />
+
+        <label for="details">Details (one per line):</label>
+        <textarea id="details" name="details" rows="3" required></textarea>
+
+        <label for="price">Price:</label>
+        <input type="text" id="price" name="price" required />
+
+        <input type="submit" value="Create"></input>
+    </form>
+</div>
