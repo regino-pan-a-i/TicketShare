@@ -1,21 +1,65 @@
-<h2>Welcome to TicketShare</h2>
-<p>A system designed to ease the trouble of getting details for your next trip/booking to everyone in your group</p>
+<div class="welcome">
+    <h1>Welcome to TicketShare</h2>
+    <p>A system designed to ease the trouble of getting details for your next trip/booking to everyone in your group</p>
 
-<h3>Add a new booking here</h3>
-<div id = "form">
-    <form  action="/booking/post" method="post">
-        <label for="event">Event:</label>
-        <input type="text" id="event" name="event" required />
-
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" required />
-
-        <label for="details">Details (one per line):</label>
-        <textarea id="details" name="details" rows="3" required></textarea>
-
-        <label for="price">Price:</label>
-        <input type="text" id="price" name="price" required />
-
-        <input type="submit" value="Create"></input>
-    </form>
 </div>
+<div class="main">
+<h2>Add a new booking here</h2>
+<div id="form">
+        <form action="/bookings/post" method="post">
+            <label for="event">Event:</label>
+            <input type="text" id="event" name="event" required />
+
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required />
+
+            <label for="time">Time:</label>
+            <input type="time" id="time" name="time" />
+
+            <label for="location">Location:</label>
+            <input type="text" id="location" name="location" required />
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Transportation">Transportation</option>
+                <option value="Accommodation">Accommodation</option>
+                <option value="Activity">Activity</option>
+            </select>
+
+            <label for="vendor">Vendor:</label>
+            <input type="text" id="vendor" name="vendor" />
+
+            <label for="confirmationNumber">Confirmation Number:</label>
+            <input type="text" id="confirmationNumber" name="confirmationNumber" />
+
+            <label for="participants">Participants:</label>
+            <input type="number" id="participants" name="participants" min="1" />
+
+            <label for="duration">Duration:</label>
+            <input type="text" id="duration" name="duration" placeholder="e.g. 2 hours, 3 nights" />
+
+            <label for="bookingDate">Booking Date:</label>
+            <input type="date" id="bookingDate" name="bookingDate" />
+
+            <label for="status">Status:</label>
+            <select id="status" name="status">
+                <option value="Confirmed">Confirmed</option>
+                <option value="Pending">Pending</option>
+                <option value="Cancelled">Cancelled</option>
+            </select>
+
+            <label for="price">Price:</label>
+            <input type="text" id="price" name="price" required />
+
+            <label for="details">Details (one per line):</label>
+            <textarea id="details" name="details" rows="4" placeholder="e.g. Arrive by noon&#10;Check-in at 3PM"></textarea>
+
+            <label for="notes">Notes:</label>
+            <textarea id="notes" name="notes" rows="2" placeholder="e.g. Bring ID, No refunds after check-in"></textarea>
+
+            <input type="submit" value="Create" />
+        </form>
+    </div>
+
+</div>
+

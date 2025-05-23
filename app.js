@@ -5,39 +5,36 @@ import { fileURLToPath } from 'url';
 import fastifyView from '@fastify/view';
 import ejs from 'ejs';
 import fastifyStatic from '@fastify/static';
-
+import fastifyFormbody from '@fastify/formbody';
 
 /**
  * @type {import('fastify').FastifyInstance} Instance of Fastify
 */
 
-
-const fastify = Fastify({
-  logger: true
-})
-fastify.register(routes)
-
     
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const fastify = Fastify({
+  logger: true
+})
+
+fastify.register(fastifyFormbody);
+fastify.register(routes)
 fastify.register(fastifyView, {
     engine: {
         ejs: ejs,
     },
     root: path.join(__dirname, 'src/views'),
-    layout: 'layout.ejs' // Just the filename, not a path
+    layout: 'layout.ejs' 
 });
-
 fastify.register(fastifyStatic,{
     root: path.join(__dirname, 'public'),
     prefix: '/public/'
 })
 
 
-/**
- * Run the server!
- */
+
 const start = async () => {
   try {
     await fastify.listen({ port: 3000 })
