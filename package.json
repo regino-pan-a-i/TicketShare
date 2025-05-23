@@ -1,0 +1,21 @@
+{
+  "name": "ticketshare",
+  "version": "1.0.0",
+  "description": "TicketShare is a web app that helps users easily share details about any event/travel booking with others",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@fastify/view": "^11.1.0",
+    "ejs": "^3.1.10",
+    "fastify": "^5.3.3",
+    "nodemon": "^3.1.10"
+  }
+}
