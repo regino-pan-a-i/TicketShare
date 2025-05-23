@@ -2,7 +2,7 @@
   "name": "ticketshare",
   "version": "1.0.0",
   "description": "TicketShare is a web app that helps users easily share details about any event/travel booking with others",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
