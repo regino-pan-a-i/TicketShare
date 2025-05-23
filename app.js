@@ -4,6 +4,7 @@ import routes from './src/routes/routes.js'
 import { fileURLToPath } from 'url';
 import fastifyView from '@fastify/view';
 import ejs from 'ejs';
+import fastifyStatic from '@fastify/static';
 
 
 /**
@@ -28,6 +29,10 @@ fastify.register(fastifyView, {
     layout: 'layout.ejs' // Just the filename, not a path
 });
 
+fastify.register(fastifyStatic,{
+    root: path.join(__dirname, 'public'),
+    prefix: '/public/'
+})
 
 
 /**
