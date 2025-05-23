@@ -1,20 +1,32 @@
-
 import Fastify from 'fastify'
+import path from 'path';
+import routes from './src/routes/routes.js'
+import { fileURLToPath } from 'url';
+import fastifyView from '@fastify/view';
+import ejs from 'ejs';
+
+
 /**
  * @type {import('fastify').FastifyInstance} Instance of Fastify
- */
+*/
 
-import routes from './src/routes/routes.js'
 
 const fastify = Fastify({
   logger: true
 })
 fastify.register(routes)
 
-// fastify.get('/', async (request, reply) => {
-//   return { hello: 'world' }
-// })
+    
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
+fastify.register(fastifyView, {
+    engine: {
+        ejs: ejs,
+    },
+    root: path.join(__dirname, 'src/views'),
+    layout: 'layout.ejs' // Just the filename, not a path
+});
 
 
 
